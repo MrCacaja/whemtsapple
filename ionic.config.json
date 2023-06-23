@@ -1,0 +1,7 @@
+{
+  "name": "WhemtsApple",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
