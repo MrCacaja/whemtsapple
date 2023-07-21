@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "whemtsapple-6559d": {
+      "hosting": {
+        "app": [
+          "whemtsapple-6559d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "whemtsapple-6559d"
+  }
+}
