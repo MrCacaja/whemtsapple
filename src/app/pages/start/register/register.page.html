@@ -1,13 +1,11 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form [formGroup]="form">
+    <app-input formControlName="name" label="Nome" placeholder="Seu nome"></app-input>
+    <app-input formControlName="email" label="Email" placeholder="Seu email" type="email"></app-input>
+    <app-input formControlName="phone" label="Telefone" placeholder="Seu telefone" type="tel" [mask]="phoneMask"></app-input>
+    <app-input formControlName="password" label="Senha" placeholder="Sua senha" type="password"></app-input>
+    <app-input formControlName="confirmPassword" label="Confirmação de Senha" placeholder="Confirme sua senha"
+      type="password"></app-input>
+    <app-button (click)="register()" [disabled]="!form.valid">Cadastrar</app-button>
+  </form>
 </ion-content>

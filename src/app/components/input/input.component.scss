@@ -1,14 +1,37 @@
 :host {
   display: flow-root;
   margin: 12px 14px 24px 12px;
-}
 
-ion-item {
-  margin: 0;
-  box-shadow: 2px 2px 0px 6px var(--ion-color-dark);
-  border-radius: 4px;
-}
-
-ion-label {
+  ion-item {
+    margin: 0;
+    box-shadow: 2px 2px 0px 6px var(--ion-color-dark);
+    border-radius: 4px;
+  }
+  
+  ion-label {
     font-weight: bold;
+  }
+  
+  .errors {
+    color: var(--ion-color-danger);
+    margin-bottom: 4px;
+  
+    p {
+      margin: 0;
+    }
+  }  
+
+  &.ng-invalid {
+    ion-item {
+      box-shadow: 2px 2px 0px 6px var(--ion-color-danger);
+      color: var(--ion-color-danger);
+    }
+  }
+
+  &.ng-valid {
+    ion-item {
+      box-shadow: 2px 2px 0px 6px var(--ion-color-success);
+      color: var(--ion-color-success);
+    }
+  }
 }

@@ -10,6 +10,7 @@ import {
   UserCredential,
   sendPasswordResetEmail,
 } from '@angular/fire/auth';
+import { UserService } from './firestore/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class AuthService {
     'loading'
   );
 
-  constructor(private navCtrl: NavController, private auth: Auth) {}
+  constructor(private navCtrl: NavController, private auth: Auth, private userSrvc: UserService) {}
 
   async logout() {
     await this.navCtrl.navigateRoot(APP_PATHS.start.root);
@@ -33,7 +34,13 @@ export class AuthService {
     await signInWithEmailAndPassword(this.auth, email, password);
   }
 
-  async registerUser(email: string, password: string): Promise<UserCredential> {
+  async createUser(email: string, password: string, user: Partial<User>) {
+    const userCredential = await this.registerUser(email, password);
+    const { uid } = userCredential.user;
+    await this.userSrvc.set({...user, id: uid});
+  }
+
+  private async registerUser(email: string, password: string): Promise<UserCredential> {
     return await createUserWithEmailAndPassword(this.auth, email, password);
   }
 

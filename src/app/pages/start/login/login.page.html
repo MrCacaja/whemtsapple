@@ -4,4 +4,5 @@
     <app-input formControlName="password" label="Senha" placeholder="Sua senha" type="password"></app-input>
     <app-button (click)="login()" [disabled]="!form.valid">Entrar</app-button>
   </form>
+  <app-button (click)="goToRegister()">Criar conta</app-button>
 </ion-content>
